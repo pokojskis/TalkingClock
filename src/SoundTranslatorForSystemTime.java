@@ -16,7 +16,7 @@ public class SoundTranslatorForSystemTime {
             { "0.wav",  "20.wav", "30.wav", "40.wav", "50.wav" };
     private final String MINUTES_SECOND[] =
             { "1.wav", "2.wav", "3.wav", "4.wav", "5.wav", "6.wav", "7.wav", "8.wav", "9.wav" };
-    private final String url = "/home/pokojskis/IdeaProjects/TalkingClock/hitachi/";
+    private final String url = "src/hitachi/";
     private String[] hoursAndMinutes;
     private char[] digits;
     private List<String> clockPlaylist;
@@ -40,8 +40,12 @@ public class SoundTranslatorForSystemTime {
         if (digits[0] == '1') {
             clockPlaylist.add(parseTeens());
         } else {
-            clockPlaylist.add(parseFirstMinuteDigit());
-            clockPlaylist.add(parseSecondMinuteDigit());
+            if (digits[1] == '0') {
+                clockPlaylist.add(parseFirstMinuteDigit());
+            } else {
+                clockPlaylist.add(parseFirstMinuteDigit());
+                clockPlaylist.add(parseSecondMinuteDigit());
+            }
         }
         if (clockConverted < 12) {
             clockPlaylist.add("am.wav");
