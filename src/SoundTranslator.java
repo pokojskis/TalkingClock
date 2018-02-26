@@ -21,10 +21,12 @@ public class SoundTranslator {
     private char[] digits;
     private List<String> clockPlaylist;
     private Scanner scanner;
+    SystemTimeFetcher systemTimeFetcher;
 
-    public SoundTranslator() {
+    public SoundTranslator(SystemTimeFetcher systemTimeFetcher) {
         scanner = new Scanner(System.in);
         clockPlaylist = new ArrayList<>();
+        this.systemTimeFetcher = systemTimeFetcher;
     }
 
     public void start() {
