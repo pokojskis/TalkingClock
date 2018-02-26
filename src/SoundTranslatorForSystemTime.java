@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SoundTranslator {
+public class SoundTranslatorForSystemTime {
 
     private final String HOURS[] =
             { "alarm.wav", "2.wav", "3.wav", "4.wav", "5.wav", "6.wav", "7.wav", "8.wav", "9.wav", "10.wav", "11.wav", "12.wav" };
@@ -21,10 +21,12 @@ public class SoundTranslator {
     private char[] digits;
     private List<String> clockPlaylist;
     private Scanner scanner;
+    SystemTimeFetcher systemTimeFetcher;
 
-    public SoundTranslator(SystemTimeFetcher systemTimeFetcher) {
+    public SoundTranslatorForSystemTime(SystemTimeFetcher systemTimeFetcher) {
         scanner = new Scanner(System.in);
         clockPlaylist = new ArrayList<>();
+        this.systemTimeFetcher = systemTimeFetcher;
     }
 
     public void start() {
