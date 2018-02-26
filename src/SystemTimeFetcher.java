@@ -9,9 +9,4 @@ public class SystemTimeFetcher {
         String timeFetched = formatter.format(now).toString();
         return timeFetched;
     }
-
-    protected void displayTime() {
-        System.out.println(fetchTime());
-    }
-
 }

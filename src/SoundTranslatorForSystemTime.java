@@ -20,25 +20,17 @@ public class SoundTranslatorForSystemTime {
     private String[] hoursAndMinutes;
     private char[] digits;
     private List<String> clockPlaylist;
-    private Scanner scanner;
     SystemTimeFetcher systemTimeFetcher;
 
-    public SoundTranslatorForSystemTime(SystemTimeFetcher systemTimeFetcher) {
-        scanner = new Scanner(System.in);
+    public SoundTranslatorForSystemTime() {
         clockPlaylist = new ArrayList<>();
-        this.systemTimeFetcher = systemTimeFetcher;
+        systemTimeFetcher = new SystemTimeFetcher();
     }
 
     public void start() {
         parseTime();
         addToPlaylist();
         playClock();
-    }
-
-    private String enterHour() {
-        System.out.print("Enter hour to translate in format HH:MM: ");
-        String hourToTranslate = scanner.nextLine();
-        return hourToTranslate;
     }
 
     private List<String> addToPlaylist() {
@@ -60,7 +52,7 @@ public class SoundTranslatorForSystemTime {
     }
 
     private void parseTime() {
-        hoursAndMinutes = enterHour().split(":");
+        hoursAndMinutes = systemTimeFetcher.fetchTime().split(":");
         digits = hoursAndMinutes[1].toCharArray();
     }
 

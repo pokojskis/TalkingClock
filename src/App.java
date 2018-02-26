@@ -4,6 +4,6 @@ public class App {
 
 //        new Translator().start();
 //        new SoundTranslator().start();
-        new SystemTimeFetcher().displayTime();
+        new SoundTranslatorForSystemTime().start();
     }
 }
